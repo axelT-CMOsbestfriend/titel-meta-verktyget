@@ -19,7 +19,7 @@ Gratis verktyg för title och meta description, i samma stil som axeltuvemo.com.
 
 ## Adress
 
-Sajtens adress sätts med miljövariabeln `SITE` (standard `https://meta.axeltuvemo.com`). Den används i canonical, schema och sitemap.
+Sajtens adress sätts med miljövariabeln `SITE` (standard `https://meta-verktyget.axeltuvemo.com`). Den används i canonical, schema och sitemap.
 
 ## Länkar in
 

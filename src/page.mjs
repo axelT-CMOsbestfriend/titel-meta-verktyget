@@ -2,7 +2,7 @@
 
 import { siteHeader, siteFooter, fonts, PERSON, MAIN, GEO } from "./chrome.mjs";
 
-export const SITE = process.env.SITE || "https://meta.axeltuvemo.com";
+export const SITE = process.env.SITE || "https://meta-verktyget.axeltuvemo.com";
 
 const attr = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 const safeJson = (o, indent) => JSON.stringify(o, null, indent).replace(/</g, "\\u003c");
