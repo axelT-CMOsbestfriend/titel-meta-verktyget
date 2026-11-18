@@ -1,0 +1,102 @@
+/* Verktygssidor (titel & meta). Bygger på site.css. */
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.tm-hero { padding-bottom: 40px; }
+.tm-hero h1 { max-width: 14ch; }
+.tm-hint { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+
+.tm-app { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 40px; align-items: start; padding-bottom: 40px; }
+@media (max-width: 960px) { .tm-app { grid-template-columns: 1fr; } }
+.tm-side { position: sticky; top: 24px; display: grid; gap: 28px; }
+@media (max-width: 960px) { .tm-side { position: static; } }
+
+/* Fält */
+.tm-field { margin-bottom: 26px; }
+.tm-field label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+.tm-field label small { font-weight: 400; color: var(--muted); margin-left: 6px; }
+.tm-label-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.tm-label-row label { margin-bottom: 8px; }
+.tm-field input, .tm-field textarea {
+  width: 100%; border: 1px solid var(--ink); background: var(--paper); color: var(--ink);
+  font: 17px/1.5 var(--sans); padding: 13px 16px; border-radius: 0; resize: vertical; transition: box-shadow .2s;
+}
+.tm-field input:focus, .tm-field textarea:focus { outline: none; box-shadow: 4px 4px 0 0 var(--accent); }
+.tm-count { font: 500 13px var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
+.tm-count b { color: var(--ink); }
+
+/* Mätare: fylls till gränsen, gränsen markeras med ett streck */
+.tm-meter { position: relative; height: 6px; background: var(--soft); margin-top: 10px; }
+.tm-meter i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--good); transition: width .15s, background .2s; }
+.tm-meter .tm-limit { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); left: calc(100% / 1.15); }
+.tm-meter.warn i { background: var(--warn); }
+.tm-meter.bad i { background: var(--bad); }
+.tm-status { margin: 8px 0 0; font-size: 14px; color: var(--muted); min-height: 1.5em; }
+.tm-status.good { color: var(--good); }
+.tm-status.warn { color: var(--warn); }
+.tm-status.bad { color: var(--bad); }
+
+/* Nuläget från hämtningen */
+.tm-now { border: 1px solid var(--line); background: var(--paper); padding: 20px 22px; margin-bottom: 30px; }
+.tm-now dl { margin: 12px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-size: 14px; }
+.tm-now dt { color: var(--muted); }
+.tm-now dd { margin: 0; word-break: break-word; }
+.tm-flags { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 6px; font-size: 14px; }
+.tm-flags li::before { content: "! "; color: var(--warn); font-weight: 700; }
+.tm-flags li.bad::before { color: var(--bad); }
+.link-btn { background: none; border: 0; padding: 0; margin-top: 14px; font: 500 14px var(--sans); color: var(--ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* Förhandsvisningen. Färger och mått efterliknar ett vanligt sökresultat. */
+.tm-preview-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+.tm-tabs { display: flex; border: 1px solid var(--ink); }
+.tm-tabs button { border: 0; background: transparent; font: 500 13px var(--sans); padding: 7px 14px; cursor: pointer; color: var(--ink); }
+.tm-tabs button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+.tm-serp-wrap { background: #fff; border: 1px solid var(--line); padding: 24px 20px; overflow: hidden; }
+.tm-serp { font-family: Arial, Helvetica, sans-serif; color: #202124; margin: 0 auto; }
+.tm-serp.desktop { max-width: 600px; }
+.tm-serp.mobile { max-width: 360px; }
+.tm-src { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.tm-fav { flex: none; width: 28px; height: 28px; border-radius: 50%; background: #f1f3f4; border: 1px solid #dadce0; display: grid; place-items: center; overflow: hidden; font: 700 13px Arial, sans-serif; color: #5f6368; }
+.tm-fav img { width: 18px; height: 18px; }
+.tm-src-txt { display: grid; line-height: 1.3; min-width: 0; }
+.tm-site { font-size: 14px; color: #202124; }
+.tm-crumb { font-size: 12px; color: #4d5156; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tm-title { display: block; color: #1a0dab; font-size: 20px; line-height: 1.3; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
+.tm-title:hover { text-decoration: underline; }
+.tm-title.empty, .tm-desc .empty { color: #9aa0a6; }
+.tm-desc { margin: 0; font-size: 14px; line-height: 1.58; color: #4d5156; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-wrap: break-word; }
+.tm-desc b { color: #5f6368; font-weight: 700; }
+.tm-serp.mobile .tm-title { white-space: normal; font-size: 18px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.tm-serp.mobile .tm-desc { -webkit-line-clamp: 3; }
+.tm-note { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+
+/* Kontroller */
+.tm-score { font: 500 13px var(--sans); color: var(--muted); }
+.tm-checks ul { list-style: none; padding: 0; margin: 12px 0 0; border-top: 1px solid var(--line); }
+.tm-checks li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.tm-checks li::before { font-weight: 700; }
+.tm-checks li.ok::before { content: "✓"; color: var(--good); }
+.tm-checks li.part::before { content: "–"; color: var(--warn); }
+.tm-checks li.no::before { content: "✗"; color: var(--bad); }
+.tm-checks li.na { color: var(--muted); }
+.tm-checks li.na::before { content: "·"; color: var(--muted); }
+.tm-checks small { display: block; color: var(--muted); font-size: 13px; }
+
+.tm-code pre { margin-top: 12px; padding-top: 40px; white-space: pre-wrap; word-break: break-word; min-height: 64px; }
+.tm-actions { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* Skrivtips */
+.tm-guide { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+@media (max-width: 860px) { .tm-guide { grid-template-columns: 1fr; gap: 40px; } }
+.tm-guide h2 { font-size: clamp(30px, 3.6vw, 40px) !important; }
+.tm-guide p { color: var(--muted); }
+.tm-list { list-style: none; padding: 0; margin: 18px 0 0; }
+.tm-list li { padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+.tm-list b { color: var(--ink); font-weight: 600; }
+
+/* Avslutande ruta, samma som i guiden */
+.tm-cta { margin: 40px 0 0; background: var(--ink); color: var(--paper); padding: 34px; }
+.tm-cta .eyebrow { color: color-mix(in srgb, var(--paper) 60%, transparent); }
+.tm-cta h2 { color: var(--paper); font-size: 32px; margin: 12px 0 10px; }
+.tm-cta p { color: color-mix(in srgb, var(--paper) 72%, transparent); max-width: 62ch; }
+.g-cta-row { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.g-cta-row a:not(.btn) { color: var(--paper); }

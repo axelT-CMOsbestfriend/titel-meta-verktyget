@@ -1,0 +1,12 @@
+{
+  "name": "titel-meta",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && node dev-server.mjs"
+  }
+}
